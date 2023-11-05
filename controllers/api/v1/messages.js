@@ -14,6 +14,20 @@ const index = async (req, res) => {
     });
 };
 
+const getMessageById = async (req, res) => {
+    let id = req.params.id;
+    let message = await Message.findById(id);
+    res.json({
+        status: "success",
+        message: "GET message by ID",
+        data: [
+            {
+                message: message,
+            },
+        ],
+    });
+}
+
 const create = async (req, res) => {
     let message = req.body.message;
     let m = new Message();
@@ -32,4 +46,5 @@ const create = async (req, res) => {
 };
 
 module.exports.index = index;
+module.exports.getMessageById = getMessageById;
 module.exports.create = create;

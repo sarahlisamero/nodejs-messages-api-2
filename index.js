@@ -25,6 +25,7 @@ app.use("/api/v1/messages", messagesRouter);
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
+
 /*
 <!DOCTYPE html>
 <html lang="en">
@@ -47,3 +48,4 @@ app.listen(port, () => {
 </body>
 </html>
 */
+
