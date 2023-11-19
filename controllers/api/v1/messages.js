@@ -2,7 +2,7 @@
 const Message = require("../../../models/Message");
 
 const index = async (req, res) => {
-    const { user } = req.params; // Extract the username from the request parameters
+    const user = req.query.user; // Extract the username from the request parameters
 
     let messages;
     if (user) {

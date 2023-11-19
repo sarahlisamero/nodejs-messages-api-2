@@ -10,7 +10,7 @@ const MessageSchema = new Schema({
     //user is a required string
     user: {
         type: String,
-        required: true,
+        required: false,
     },
 });
 // export the model to use it in index.js
