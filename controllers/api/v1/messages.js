@@ -66,16 +66,18 @@ const updateMessageById = async (req, res) => {
 //delete message by id
 const deleteMessageById = async (req, res) => {
     let id = req.params.id;
-    //let message = req.body.message;
-    let m = await Message.findById(id);
-    //m.message = message;
-    await m.delete();
-
-    res.json({
-        status: "success",
-        message: "DELETE a message",
-        data: null,
-    });
+    let m = await Message.findByIdAndDelete(id);
+    if(m){
+        res.json({
+            status: "success",
+            message: "DELETE a message",
+        });
+    }else{
+        res.json({
+            status: "error",
+            message: "DELETE a message failed",
+        });
+    }
 };
 
 
