@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
+//require cors
+const cors = require("cors");
 const app = express();
 const port = 3000;
 
@@ -18,6 +20,9 @@ db.on("error", console.error.bind(console, "connection error:"));
 // import routes
 const messagesRouter = require("./routes/api/v1/messages");
 app.use(express.json());
+
+// use cors
+app.use(cors());
 
 // use routes
 app.use("/api/v1/messages", messagesRouter);
