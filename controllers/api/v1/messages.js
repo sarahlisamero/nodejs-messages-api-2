@@ -60,7 +60,7 @@ const create = async (req, res) => {
     message.user = req.body.message.user;
 
     const savedMessage = await message.save();
-
+    
     res.json({
       status: "success",
       message: `POSTING a new message`,
@@ -69,13 +69,26 @@ const create = async (req, res) => {
   
 };
 
-const updateMessageById = async (req, res) => {
+/*const updateMessageById = async (req, res) => {
     let id = req.params.id;
     let message = req.body.message;
     let m = await Message.findById(id);
     m.message = message;
     await m.save();
 
+    res.json({
+        status: "success",
+        message: "UPDATE a message",
+        data: [
+            {
+                message: m,
+            },
+        ],
+    });
+};*/
+const updateMessageById = async (req, res) => {
+    let id = req.params.id;
+    let m = await Message.find({_id: id});
     res.json({
         status: "success",
         message: "UPDATE a message",
