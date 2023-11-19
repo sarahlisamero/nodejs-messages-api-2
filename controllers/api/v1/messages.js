@@ -37,8 +37,8 @@ const getMessageById = async (req, res) => {
 }
 
 const create = async (req, res) => {
-    let message = req.body.message;
-    let user = req.body.user;
+    /*let message = req.body.message.text;
+    let user = req.body.message.user;
     let m = new Message();
     m.message = message;
     m.user = user;
@@ -52,6 +52,23 @@ const create = async (req, res) => {
             {
                 message: m.message,
                 user: m.user,
+            },
+        ],
+    });*/
+    const { text, user } = req.body.message;
+    const newMessage = new Message({ message: { text, user } });
+
+    await newMessage.save();
+
+    res.json({
+        status: "success",
+        message: "POST a new message",
+        data: [
+            {
+                message: {
+                    text: newMessage.message.text,
+                    user: newMessage.message.user,
+                },
             },
         ],
     });
