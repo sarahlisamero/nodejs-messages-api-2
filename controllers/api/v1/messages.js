@@ -2,7 +2,15 @@
 const Message = require("../../../models/Message");
 
 const index = async (req, res) => {
-    let messages = await Message.find({});
+    const { user } = req.params; // Extract the username from the request parameters
+
+    let messages;
+    if (user) {
+        messages = await Message.find({ user: user });  // If a specific user is provided, filter messages by user
+    } else {
+        messages = await Message.find({}); // If no user is provided, get all messages
+    }
+
     res.json({
         status: "success",
         message: "GET all messages",
