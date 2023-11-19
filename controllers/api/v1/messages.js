@@ -37,7 +37,7 @@ const getMessageById = async (req, res) => {
 }
 
 const create = async (req, res) => {
-    let message = req.body.message;
+    /*let message = req.body.message;
     let user = req.body.user;
     let m = new Message();
     m.message = message;
@@ -54,8 +54,8 @@ const create = async (req, res) => {
                 user: m.user,
             },
         ],
-    });
-    /*const { text, user } = req.body.message;
+    });*/
+    const { text, user } = req.body.message;
     const newMessage = new Message({ message: { text, user } });
 
     await newMessage.save();
@@ -71,7 +71,7 @@ const create = async (req, res) => {
                 },
             },
         ],
-    });*/
+    });
 };
 
 const updateMessageById = async (req, res) => {
