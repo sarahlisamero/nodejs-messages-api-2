@@ -12,6 +12,11 @@ const MessageSchema = new Schema({
         type: String,
         required: false,
     },
+    // id is a required number
+    id: {
+        type: Number,
+        required: true,
+    },
 });
 // export the model to use it in index.js
 const Message = mongoose.model("Message", MessageSchema);
