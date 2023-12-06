@@ -37,8 +37,8 @@ const getMessageById = async (req, res) => {
 }
 
 const create = async (req, res) => {
-    let message = req.body.message;
-    let user = req.body.user;
+    let message = req.body.message.text;
+    let user = req.body.message.user;
     let m = new Message();
     m.message = message;
     m.user = user;
@@ -81,11 +81,11 @@ const updateMessageById = async (req, res) => {
     res.json({
         status: "success",
         message: "UPDATE a message",
-        data: [
+        /*data: [
             {
                 message: m,
             },
-        ],
+        ],*/
     });
 };
 
