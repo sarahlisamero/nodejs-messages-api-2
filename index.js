@@ -31,26 +31,3 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
 
-/*
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Chat</h1>
-    <input type="text" id="messages">
-    <input type="button" value="chat">
-    <script>
-    const get = async () => {
-    const response = await fetch (https://messages-api-mongo-p0e2.onrender.com);
-    const data = await response.json();
-    console.log(data);
-    }
-    </script>
-</body>
-</html>
-*/
-

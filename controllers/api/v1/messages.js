@@ -37,12 +37,12 @@ const getMessageById = async (req, res) => {
 }
 
 const create = async (req, res) => {
-    /*let message = req.body.message;
+    let message = req.body.message;
     let user = req.body.user;
     let m = new Message();
     m.message = message;
     m.user = user;
-
+    m.id = 911; // hardcode id for demo
     await m.save();
 
     res.json({
@@ -52,21 +52,10 @@ const create = async (req, res) => {
             {
                 message: m.message,
                 user: m.user,
+                id: m.id,
             },
         ],
-    });*/
-    const message = new Message();
-    message.message = req.body.message.text;
-    message.user = req.body.message.user;
-
-    const savedMessage = await message.save();
-    
-    res.json({
-      status: "success",
-      message: `POSTING a new message`,
-      data: savedMessage,
-    });
-  
+    });  
 };
 
 /*const updateMessageById = async (req, res) => {
