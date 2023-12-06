@@ -24,7 +24,8 @@ const index = async (req, res) => {
 
 const getMessageById = async (req, res) => {
     let id = req.params.id;
-    let message = await Message.findById(id);
+    //let message = await Message.findById(id);
+    let message = await Message.find({id: id});
     res.json({
         status: "success",
         message: "GET message by ID",
@@ -77,7 +78,8 @@ const create = async (req, res) => {
 };*/
 const updateMessageById = async (req, res) => {
     let id = req.params.id;
-    let m = await Message.find({_id: id});
+    //let m = await Message.find({_id: id});
+    let message = await Message.find({id: id});
     res.json({
         status: "success",
         message: "UPDATE a message",
@@ -92,7 +94,8 @@ const updateMessageById = async (req, res) => {
 //delete message by id
 const deleteMessageById = async (req, res) => {
     let id = req.params.id;
-    let m = await Message.findByIdAndDelete(id);
+    //let m = await Message.findByIdAndDelete(id);
+    let m = await Message.deleteOne({ id: id});
     if(m){
         res.json({
             status: "success",
